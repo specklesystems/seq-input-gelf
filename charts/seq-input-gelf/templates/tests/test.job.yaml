@@ -1,0 +1,36 @@
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: {{ include "seq-input-gelf.testname" . }}
+  labels:
+    {{- include "seq-input-gelf.labels" . | nindent 4 }}
+spec:
+  backoffLimit: 5
+  activeDeadlineSeconds: 60
+  ttlSecondsAfterFinished: 600 #automatically deleted 10 minutes after completion
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "seq-input-gelf.selectorLabels" . | nindent 8 }}
+    spec:
+      securityContext:
+        fsGroup: 2000
+        runAsUser: 1000
+        runAsGroup: 3000
+        runAsNonRoot: true
+      containers:
+      - name: tcp-connection-is-alive
+        image: alpine
+        command: ["/bin/sh"]
+        args: ["-c", "nc -z {{ printf "%s.%s.svc.cluster.local" ( include "seq-input-gelf.fullname" . ) .Release.Namespace }} {{ .Values.service.port }}"]
+        securityContext:
+          capabilities:
+            drop:
+              - ALL
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+      restartPolicy: Never
