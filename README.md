@@ -1,4 +1,4 @@
-# Speckle Repo Management Templates
+# Seq Input GELF - Helm Chart
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/SpeckleSystems?style=social)](https://twitter.com/SpeckleSystems) [![Community forum users](https://img.shields.io/discourse/users?server=https%3A%2F%2Fdiscourse.speckle.works&style=flat-square&logo=discourse&logoColor=white)](https://discourse.speckle.works) [![website](https://img.shields.io/badge/https://-speckle.systems-royalblue?style=flat-square)](https://speckle.systems) [![docs](https://img.shields.io/badge/docs-speckle.guide-orange?style=flat-square&logo=read-the-docs&logoColor=white)](https://speckle.guide/dev/)
 
@@ -12,9 +12,9 @@ You may wish to deploy `seq-input-gelf` if you are exporting logs in Graylog Ext
 
 You may wish to deploy `seq-input-gelf` independently of `seq` if you have a multiple Kubernetes clusters, and wish to transfer log data from a source cluster to a target cluster, running `seq`. Alternatively, you may have `seq` deployed on a non-Kubernetes environment, and wish to export logs messages from Kubernetes to that external seq instance.
 
-## Documentation
+This project or repository is in no way affiliated with DataLust or Seq.
 
-Comprehensive developer and user documentation can be found in our:
+## Documentation
 
 ### Usage
 
@@ -53,7 +53,11 @@ Comprehensive developer and user documentation can be found in our:
 
 ### Developing & Debugging
 
-This doesn't make sense here, but in general, we should try to provide a small "how to" guide on local development and debugging, as it lowers the barrier to contributions.
+1. Ensure the Helm chart can be templated:
+
+   ```shell
+   helm template seq-input-gelf ./charts/seq-input-gelf
+   ```
 
 ### Contributing
 

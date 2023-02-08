@@ -63,7 +63,7 @@ spec:
                   name: {{ .Values.seq.apiKey.secretName }}
                   key: {{ .Values.seq.apiKey.secretKey }}
             - name: GELF_ADDRESS
-              value: {{ printf "%s://0.0.0.0:%s" ( lower .Values.service.protocol ) .Values.service.port }}
+              value: {{ printf "%s://0.0.0.0:%d" ( lower .Values.service.protocol ) ( .Values.service.port | int ) }}
             - name: GELF_ENABLE_DIAGNOSTICS
               value: {{ .Values.seq.enableDiagnostics | quote }}
             # - name: GELF_CERTIFICATE_PATH

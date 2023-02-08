@@ -1,12 +1,18 @@
+# -- The number of instances of seq-input-gelf to deploy
 replicaCount: 1
 
 seq:
   apiKey:
+    # -- The name of the Kubernetes secret containing the Seq API key
     secretName: seq-api-key
+    # -- The key in the Kubernetes secret containing the Seq API key
     secretKey: api-key
+  # -- The URL of the Seq server to send events to
   url: http://seq:5341
+  # -- Whether to enable diagnostic logging
   diagnosticLogging: true
-  rustBackTrace: 0 # 0 = disabled, 1 = enabled. Used for debugging.
+  # -- Whether to enable backtrace logging (used for debugging). 0 = disabled, 1 = enabled.
+  rustBackTrace: 0
 
 image:
   repository: datalust/seq-input-gelf
@@ -19,19 +25,20 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
 
 service:
   type: ClusterIP
+  # -- The port on which seq-input-gelf will listen for GELF messages
   port: 12201
+  # -- The protocol (either TCP or UDP) used by seq-input-gelf to listen for GELF messages
   protocol: TCP
 
 resources: {}
