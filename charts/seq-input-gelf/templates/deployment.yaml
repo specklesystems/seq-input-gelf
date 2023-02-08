@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "seq-input-gelf.fullname" . }}
+  labels:
+    {{- include "seq-input-gelf.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "seq-input-gelf.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "seq-input-gelf.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "seq-input-gelf.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 3000
+            fsGroup: 2000
+            allowPrivilegeEscalation: false
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: gelf
+              containerPort: {{ .Values.service.port }}
+              protocol: {{ .Values.service.protocol }}
+          # TODO: Add liveness and readiness probes
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: SEQ_ADDRESS
+              value: {{ .Values.seq.url }}
+            - name: SEQ_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.seq.apiKey.secretName }}
+                  key: {{ .Values.seq.apiKey.secretKey }}
+            - name: GELF_ADDRESS
+              value: {{ printf "%s://0.0.0.0:%s" ( lower .Values.service.protocol ) .Values.service.port }}
+            - name: GELF_ENABLE_DIAGNOSTICS
+              value: {{ .Values.seq.enableDiagnostics | quote }}
+            # - name: GELF_CERTIFICATE_PATH
+            #   value: /certs/seq-input-gelf.crt
+            # - name: GELF_CERTIFICATE_PRIVATE_KEY_PATH
+            #   value: /certs/seq-input-gelf.key
+            - name: RUST_BACKTRACE
+              value: {{ .Values.seq.rustBackTrace | quote }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

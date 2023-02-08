@@ -8,7 +8,7 @@ repos:
     rev: 'v4.4.0'
     hooks:
       - id: check-yaml
-        exclude: 'deploy/helm'
+        exclude: 'charts'
       - id: check-merge-conflict
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
@@ -16,7 +16,7 @@ repos:
       - id: check-vcs-permalinks
       - id: trailing-whitespace
       - id: end-of-file-fixer
-        exclude: 'deploy/helm/README.md'
+        exclude: 'charts/seq-input-gelf/README.md'
 
   - repo: https://github.com/syntaqx/git-hooks
     rev: 'v0.0.17'

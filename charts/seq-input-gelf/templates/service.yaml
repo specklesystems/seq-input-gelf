@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "seq-input-gelf.fullname" . }}
+  labels:
+    {{- include "seq-input-gelf.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: gelf
+      protocol: {{ .Values.service.protocol }}
+      name: gelf
+  selector:
+    {{- include "seq-input-gelf.selectorLabels" . | nindent 4 }}

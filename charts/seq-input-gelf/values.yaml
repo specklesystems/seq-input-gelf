@@ -1,0 +1,49 @@
+replicaCount: 1
+
+seq:
+  apiKey:
+    secretName: seq-api-key
+    secretKey: api-key
+  url: http://seq:5341
+  diagnosticLogging: true
+  rustBackTrace: 0 # 0 = disabled, 1 = enabled. Used for debugging.
+
+image:
+  repository: datalust/seq-input-gelf
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+service:
+  type: ClusterIP
+  port: 12201
+  protocol: TCP
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
