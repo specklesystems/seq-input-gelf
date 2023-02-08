@@ -26,15 +26,23 @@ Comprehensive developer and user documentation can be found in our:
    kubectl create secret generic seq-api-key --from-value=api-key=YOURAPIKEY --namespace seq-input-gelf
    ```
 
+1. Add the helm repository for this Helm Chart
+
+   ```shell
+   helm repo add seq-input-gelf https://specklesystems.github.io/seq-input-gelf/stable
+   ```
+
+1. Update the value of `seq.url` in `./examples/values.yaml` file to match the url of your seq instance. The default example assumes seq is hosted within the same Kubernetes cluster with a Service named `seq` within a namespace named `seq`. Please adjust this as required.
+
 1. Run the following command to install the helm chart in your kubernetes cluster. Note that this will create a new namespace named `seq-input-gelf`:
 
    ```shell
    helm upgrade seq-input-gelf \
-   ./charts/seq-input-gelf \
+   seq-input-gelf/seq-input-gelf \
    --create-namespace \
    --namespace seq-input-gelf \
    --install \
-   --values ./example/values.yaml
+   --values ./examples/values.yaml
    ```
 
 1. Verify that the deployment has successfully [rolled out](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#deployment-status):
