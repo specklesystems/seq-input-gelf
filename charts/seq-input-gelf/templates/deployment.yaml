@@ -43,7 +43,7 @@ spec:
             - name: gelf
               containerPort: {{ .Values.service.port }}
               protocol: {{ .Values.service.protocol }}
-          # TODO: Add liveness and readiness probes
+          # TODO: docker image does not yet support liveness and readiness probes
           # livenessProbe:
           #   httpGet:
           #     path: /
@@ -66,12 +66,20 @@ spec:
               value: {{ printf "%s://0.0.0.0:%d" ( lower .Values.service.protocol ) ( .Values.service.port | int ) }}
             - name: GELF_ENABLE_DIAGNOSTICS
               value: {{ .Values.seq.enableDiagnostics | quote }}
+            # TODO support mounting of certificates from secrets
             # - name: GELF_CERTIFICATE_PATH
             #   value: /certs/seq-input-gelf.crt
             # - name: GELF_CERTIFICATE_PRIVATE_KEY_PATH
             #   value: /certs/seq-input-gelf.key
             - name: RUST_BACKTRACE
               value: {{ .Values.seq.rustBackTrace | quote }}
+          volumeMounts:
+            # mount an empty dir to /tmp to prevent errors as readOnlyRootFilesystem is true
+            - mountPath: /tmp
+              name: tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
