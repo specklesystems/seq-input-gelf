@@ -51,6 +51,14 @@ This doesn't make sense here, but in general, we should try to provide a small "
 
 Please make sure you read the [contribution guidelines](.github/CONTRIBUTING.md) and [code of conduct](.github/CODE_OF_CONDUCT.md) for an overview of the practices we try to follow.
 
+#### Prerequisites
+
+1. Your code must pass our pre-commit checks in order to be accepted.
+   1. Install [pre-commit](https://pre-commit.com/#install).
+   1. In your shell terminal, `cd` to the root directory of this repository.
+   1. Run `pre-commit install`.
+   1. Review the output and adjust your contribution as necessary.
+
 ### Community
 
 This Helm Chart is maintained by Speckle. The Speckle Community hangs out on [the forum](https://discourse.speckle.works), do join and introduce yourself & feel free to ask us questions!
