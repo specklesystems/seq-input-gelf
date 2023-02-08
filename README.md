@@ -23,20 +23,20 @@ Comprehensive developer and user documentation can be found in our:
 1. Edit the file `./example/values.yaml` to include your API key for seq.
 1. Run the following command to install the helm chart in your kubernetes cluster. Note that this will create a new namespace named `seq-input-gelf`:
 
-    ```shell
-    helm upgrade seq-input-gelf \
-    ./charts/seq-input-gelf \
-    --create-namespace \
-    --namespace seq-input-gelf \
-    --install \
-    --values ./example/values.yaml
-    ```
+   ```shell
+   helm upgrade seq-input-gelf \
+   ./charts/seq-input-gelf \
+   --create-namespace \
+   --namespace seq-input-gelf \
+   --install \
+   --values ./example/values.yaml
+   ```
 
 1. Verify that the deployment has successfully [rolled out](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#deployment-status):
 
-    ```shell
-    kubectl rollout status deployment/seq-input-gelf --namespace seq-input-gelf
-    ```
+   ```shell
+   kubectl rollout status deployment/seq-input-gelf --namespace seq-input-gelf
+   ```
 
 ### Developing & Debugging
 
