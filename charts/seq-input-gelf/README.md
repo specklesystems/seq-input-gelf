@@ -29,18 +29,18 @@ A Helm chart for deploying seq-input-gelf to Kubernetes
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
-| replicaCount | int | `1` |  |
+| replicaCount | int | `1` | The number of instances of seq-input-gelf to deploy |
 | resources | object | `{}` |  |
-| seq.apiKey.secretKey | string | `"api-key"` |  |
-| seq.apiKey.secretName | string | `"seq-api-key"` |  |
-| seq.diagnosticLogging | bool | `true` |  |
-| seq.rustBackTrace | int | `0` |  |
-| seq.url | string | `"http://seq:5341"` |  |
-| service.port | int | `12201` |  |
-| service.protocol | string | `"TCP"` |  |
+| seq.apiKey.secretKey | string | `"api-key"` | The key in the Kubernetes secret containing the Seq API key |
+| seq.apiKey.secretName | string | `"seq-api-key"` | The name of the Kubernetes secret containing the Seq API key |
+| seq.diagnosticLogging | bool | `true` | Whether to enable diagnostic logging |
+| seq.rustBackTrace | int | `0` | Whether to enable backtrace logging (used for debugging). 0 = disabled, 1 = enabled. |
+| seq.url | string | `"http://seq:5341"` | The URL of the Seq server to send events to |
+| service.port | int | `12201` | The port on which seq-input-gelf will listen for GELF messages |
+| service.protocol | string | `"TCP"` | The protocol (either TCP or UDP) used by seq-input-gelf to listen for GELF messages |
 | service.type | string | `"ClusterIP"` |  |
-| serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.name | string | `""` |  |
+| serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
+| serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
+| serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` |  |
 
