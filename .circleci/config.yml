@@ -18,6 +18,9 @@ workflows:
             branches: &filter-only-main
               only:
                 - main
+          requires:
+            - get-version
+            - pre-commit
 
 jobs:
   get-version:
@@ -88,7 +91,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - 'TODO: add fingerprint here'
+            - '99:72:8a:c8:d2:8d:f5:b8:66:c0:01:12:ee:24:2b:16'
       - attach_workspace:
           at: /tmp/workspace
       - run:
