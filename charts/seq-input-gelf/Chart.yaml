@@ -1,0 +1,13 @@
+apiVersion: v2
+appVersion: "3.0.441-x64"
+description: A Helm chart for deploying seq-input-gelf to Kubernetes
+home: 'https://speckle.systems/'
+icon: 'https://speckle.xyz/logo.svg'
+maintainers:
+  - name: Speckle Systems
+    url: 'https://speckle.systems/'
+name: seq-input-gelf
+sources:
+  - 'https://github.com/specklesystems/speckle-server'
+type: application
+version: 0.1.0
