@@ -64,7 +64,7 @@ spec:
             - name: GELF_ADDRESS
               value: {{ printf "%s://0.0.0.0:%d" ( lower .Values.service.protocol ) ( .Values.service.port | int ) }}
             - name: GELF_ENABLE_DIAGNOSTICS
-              value: {{ .Values.seq.enableDiagnostics | quote }}
+              value: {{ .Values.seq.diagnosticLogging | quote }}
             # TODO support mounting of certificates from secrets
             # - name: GELF_CERTIFICATE_PATH
             #   value: /certs/seq-input-gelf.crt

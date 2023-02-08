@@ -14,8 +14,6 @@ spec:
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      labels:
-        {{- include "seq-input-gelf.selectorLabels" . | nindent 8 }}
     spec:
       securityContext:
         fsGroup: 2000
