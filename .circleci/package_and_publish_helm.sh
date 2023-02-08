@@ -5,7 +5,7 @@ set -eo pipefail
 TEMP_PACKAGE_DIR="${TEMP_PACKAGE_DIR:-"/tmp/.cr-release-packages"}"
 HELM_PACKAGE_BRANCH="${HELM_PACKAGE_BRANCH:-"gh-pages"}"
 HELM_STABLE_BRANCH="${HELM_STABLE_BRANCH:-"main"}"
-HELM_CHART_DIR_PATH="${HELM_CHART_DIR_PATH:-"deploy/helm"}"
+HELM_CHART_DIR_PATH="${HELM_CHART_DIR_PATH:-"charts/seq-input-gelf"}"
 
 if [[ -z "${VERSION}" ]]; then
   echo "VERSION environment variable should be set"
