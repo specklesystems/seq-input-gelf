@@ -12,6 +12,11 @@ if [[ -z "${VERSION}" ]]; then
   exit 1
 fi
 
+if [[ -z "${APP_VERSION}" ]]; then
+  echo "APP_VERSION environment variable should be set"
+  exit 1
+fi
+
 if [[ -z "${GIT_EMAIL}" ]]; then
   echo "GIT_EMAIL environment variable should be set"
   exit 1
@@ -30,7 +35,7 @@ helm version -c
 echo "🏗️ building dependencies"
 helm dependency build "${HELM_CHART_DIR_PATH}"
 echo "🎁 packaging ${HELM_CHART_DIR_PATH} with version: ${VERSION}"
-helm package "${HELM_CHART_DIR_PATH}" --dependency-update --version "${VERSION}" --app-version "${VERSION}" --destination "${TEMP_PACKAGE_DIR}"
+helm package "${HELM_CHART_DIR_PATH}" --dependency-update --version "${VERSION}" --app-version "${APP_VERSION}" --destination "${TEMP_PACKAGE_DIR}"
 
 echo "⏬ checking out git branch '${HELM_PACKAGE_BRANCH}'"
 git config user.email "${GIT_EMAIL}"

@@ -98,3 +98,5 @@ jobs:
       - run:
           name: Build and Publish
           command: ./.circleci/package_and_publish_helm.sh
+          environment:
+            APP_VERSION: '3.0.441-x64'
