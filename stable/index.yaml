@@ -3,7 +3,24 @@ entries:
   seq-input-gelf:
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.88163594Z"
+    created: "2023-02-09T10:57:20.396132157Z"
+    description: A Helm chart for deploying seq-input-gelf to Kubernetes
+    digest: 30c751c348ee2f1b9364f7dae24e68deb7c460c1ba428b4d8f5aaafcd8b129af
+    home: https://speckle.systems/
+    icon: https://speckle.xyz/logo.svg
+    maintainers:
+    - name: Speckle Systems
+      url: https://speckle.systems/
+    name: seq-input-gelf
+    sources:
+    - https://github.com/specklesystems/speckle-server
+    type: application
+    urls:
+    - seq-input-gelf-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 3.0.441-x64
+    created: "2023-02-09T10:57:20.395669441Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: 06cbf35ac3ec20ef5b3ed84b6cae65780ccbe49879f3f47b9f99644c273fbe4d
     home: https://speckle.systems/
@@ -20,7 +37,7 @@ entries:
     version: 0.3.1-alpha.68
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.880860345Z"
+    created: "2023-02-09T10:57:20.395232908Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: dc2c6d396c2e3a7b4729cdb42840e74413448f645663d29ace4ad4659ff82089
     home: https://speckle.systems/
@@ -37,7 +54,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.880116715Z"
+    created: "2023-02-09T10:57:20.394083635Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: 45aceaad65537e7d6baaf56cbc482354dba5083da1acab67ee260cee7b89b96f
     home: https://speckle.systems/
@@ -54,7 +71,7 @@ entries:
     version: 0.2.2-alpha.61
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.879396592Z"
+    created: "2023-02-09T10:57:20.392823279Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: 2a47a2acb52da50dccd4eb23ee010bfd983e031a984fc71d367c0af41585c453
     home: https://speckle.systems/
@@ -71,7 +88,7 @@ entries:
     version: 0.2.2-alpha.56
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.878751168Z"
+    created: "2023-02-09T10:57:20.39241686Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: 40714a2e6c9819015ae9ac8d55755e533fbd2c31f6034e7ebba54c4e2347e494
     home: https://speckle.systems/
@@ -88,7 +105,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.878111861Z"
+    created: "2023-02-09T10:57:20.391996848Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: 60def2a4345817f32efc8c3b60437a825d938dc9876f83fafbde6b9037c2bfe2
     home: https://speckle.systems/
@@ -105,7 +122,7 @@ entries:
     version: 0.2.1-alpha.47
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.877511425Z"
+    created: "2023-02-09T10:57:20.3915924Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: c195ddf4043efee9920a688d53754064b031c431f0693a3fd859a711006b3771
     home: https://speckle.systems/
@@ -122,7 +139,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.876943745Z"
+    created: "2023-02-09T10:57:20.391168177Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: bbcd2a9a3ed69d13ee39e2982ae327c0ca5a376f3e137752b968fb557922878b
     home: https://speckle.systems/
@@ -139,7 +156,7 @@ entries:
     version: 0.1.1-alpha.40
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.876343526Z"
+    created: "2023-02-09T10:57:20.390678579Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: 1723f3820c9f0be3248d68e1513890f3ea2260230361ed82358d69ae3c2947b0
     home: https://speckle.systems/
@@ -156,7 +173,7 @@ entries:
     version: 0.1.1-alpha.34
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.875897759Z"
+    created: "2023-02-09T10:57:20.390312934Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: 6e7e04bd3bc8da89d43228c23c8c893379aea8468d9f54ba25a0102504579843
     home: https://speckle.systems/
@@ -173,7 +190,7 @@ entries:
     version: 0.1.1-alpha.30
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.875494217Z"
+    created: "2023-02-09T10:57:20.389874737Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: a501a76dc1435851b2e3c33c90c034b0e95e1c0778e1b452d302e32e080ad9de
     home: https://speckle.systems/
@@ -190,7 +207,7 @@ entries:
     version: 0.1.1-alpha.25
   - apiVersion: v2
     appVersion: 3.0.441-x64
-    created: "2023-02-09T10:56:39.875110427Z"
+    created: "2023-02-09T10:57:20.38941909Z"
     description: A Helm chart for deploying seq-input-gelf to Kubernetes
     digest: d012f9b5c8a276fe62a5de80955a3bd70184598b7308eb23c9f995c36d58eb50
     home: https://speckle.systems/
@@ -205,4 +222,4 @@ entries:
     urls:
     - seq-input-gelf-0.1.1-alpha.18.tgz
     version: 0.1.1-alpha.18
-generated: "2023-02-09T10:56:39.874501714Z"
+generated: "2023-02-09T10:57:20.388799783Z"
