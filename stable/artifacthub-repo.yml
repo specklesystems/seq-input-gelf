@@ -1,0 +1,6 @@
+repositoryID: e162dbb3-de8e-40c1-8ad6-6cc94299360a
+owners:
+  - name: SpeckleDevops
+ignore: # (optional, packages that should not be indexed by Artifact Hub)
+  - name: seq-input-gelf
+    version: alpha
