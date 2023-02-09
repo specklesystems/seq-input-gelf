@@ -13,6 +13,15 @@ seq:
   diagnosticLogging: true
   # -- Whether to enable backtrace logging (used for debugging). 0 = disabled, 1 = enabled.
   rustBackTrace: 0
+  tls:
+    # -- If true it enables TLS for the connection to gelf-input-seq. This will only be enabled if `service.protocol` is 'TCP'.
+    enabled: false
+    # -- The name of the Kubernetes secret containing the TLS certificate
+    secretName: seq-tls
+    # -- The key in the Kubernetes secret containing the TLS certificate
+    certificateSecretKey: tls.crt
+    # -- The key in the Kubernetes secret containing the TLS private key
+    privateKeySecretKey: tls.key
 
 image:
   repository: datalust/seq-input-gelf

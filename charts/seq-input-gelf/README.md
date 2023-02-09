@@ -35,6 +35,10 @@ A Helm chart for deploying seq-input-gelf to Kubernetes
 | seq.apiKey.secretName | string | `"seq-api-key"` | The name of the Kubernetes secret containing the Seq API key |
 | seq.diagnosticLogging | bool | `true` | Whether to enable diagnostic logging |
 | seq.rustBackTrace | int | `0` | Whether to enable backtrace logging (used for debugging). 0 = disabled, 1 = enabled. |
+| seq.tls.certificateSecretKey | string | `"tls.crt"` | The key in the Kubernetes secret containing the TLS certificate |
+| seq.tls.enabled | bool | `false` | If true it enables TLS for the connection to gelf-input-seq. This will only be enabled if `service.protocol` is 'TCP'. |
+| seq.tls.privateKeySecretKey | string | `"tls.key"` | The key in the Kubernetes secret containing the TLS private key |
+| seq.tls.secretName | string | `"seq-tls"` | The name of the Kubernetes secret containing the TLS certificate |
 | seq.url | string | `"http://seq:5341"` | The URL of the Seq server to send events to |
 | service.port | int | `12201` | The port on which seq-input-gelf will listen for GELF messages |
 | service.protocol | string | `"TCP"` | The protocol (either TCP or UDP) used by seq-input-gelf to listen for GELF messages |
