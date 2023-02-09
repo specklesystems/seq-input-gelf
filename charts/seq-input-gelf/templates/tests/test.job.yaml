@@ -2,8 +2,6 @@ kind: Job
 apiVersion: batch/v1
 metadata:
   name: {{ include "seq-input-gelf.testname" . }}
-  labels:
-    {{- include "seq-input-gelf.labels" . | nindent 4 }}
 spec:
   backoffLimit: 5
   activeDeadlineSeconds: 60
